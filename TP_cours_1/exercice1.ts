@@ -1,3 +1,5 @@
+// Fini
+
 let tab = [10, 6, 3, 20, 19, 16, 8, 6, 4, 13, 17, 0, 20];
 
 function min(tab: number[]): number {
@@ -37,7 +39,6 @@ function entre_min_et_max(tab: number[]): number[] {
 			let indice = Number(i);
 			tab.splice(indice, 1);
 			i--;
-			//console.log(i);
 		}
 	}
 	return tab;
