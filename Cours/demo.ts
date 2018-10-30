@@ -47,5 +47,51 @@ let sommeLambda = (x: number, ...autres: number[]) =>
     autres.reduce((s,e)=> s+=e) + x;
 sommeLambda(1,2,3,9,8);
 
+// objet à la volée
+let totoObjet = {
+    nom: 'toto',
+    prenom: 'titi',
+    affiche: function() {
+        console.log('je mappelle ' + this.prenom);
+    }
+}
 
+class Personne{
+    nom: string;
+    prenom: string;
+    constructor(nom: string, prenom: string) {
+        this.nom = nom;
+        this.prenom = prenom;
+    }
+    affiche(): void {
+        console.log(`${this.nom} ${this.prenom}`)
+    }
+}
+let mickey = new Personne('mickey', 'mouse');
+totoObjet.affiche();
+mickey.affiche();
+totoObjet = mickey;
 
+interface Figure {
+    aire : () => number;
+}
+// import {Rectangle, Carre} from './demo.ts'
+export class Rectangle implements Figure{
+    largeur: number;
+    longueur: number;
+    constructor(largeur: number, longueur: number) {
+        this.largeur = largeur;
+        this.longueur = longueur;
+    }
+    aire(): number {
+        return this.largeur * this.longueur;
+    }
+}
+export class Carre extends Rectangle{
+    constructor(cote: number) {
+        super(cote,cote);
+    }
+}
+
+let [d, g , ...autres] = [0, 9];
+console.log('d = ' + d + ' et g = ' + g + ' et autres = ' + autres);
